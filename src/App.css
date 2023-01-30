@@ -39,3 +39,19 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  padding: 20px;
+  background-color: rgb(42, 252, 235);
+}
+.ul {
+  margin: 20px;
+  text-align: left;
+  list-style-type: none;
+}
+.li {
+  background-color: aliceblue;
+  padding: 20px;
+  padding-left: 30px;
+  margin: 10px;
+}

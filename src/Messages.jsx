@@ -20,20 +20,14 @@ export const Messages = () => {
   }, []);
   console.log("messages data:", messages);
   return (
-    <div>
+    <div className='containe'>
       <h1>messages</h1>
-      <table>
-        <tr>
-          <th>Id</th>
-          <th>Subject</th>
-          <th>Body</th>
-          <th>views</th>
-        </tr>
+      <ul className='ul'>
         {messages &&
           messages.map((user) => (
             <MessagesDetails key={user.id} details={user} />
           ))}
-      </table>
+      </ul>
     </div>
   );
 };
