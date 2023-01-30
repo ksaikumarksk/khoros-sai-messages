@@ -7,7 +7,7 @@ export const MessagesDetails = (props) => {
     <li className='li'>
       <p>id: {id}</p>
       <p>subject: {subject}</p>
-      <p>body: {body}</p>
+      <p dangerouslySetInnerHTML={{ __html: body }}></p>
       <p>Views: {metrics.views}</p>
     </li>
   );
