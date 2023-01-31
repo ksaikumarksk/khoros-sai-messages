@@ -10,24 +10,26 @@ export const MessagesDetails = (props) => {
       <Dialog.Root>
         <Dialog.Trigger asChild>
           <li className='li'>
-            <p>id: {id}</p>
-            <p>subject: {subject}</p>
-            <p dangerouslySetInnerHTML={{ __html: body }}></p>
-            <p>Views: {metrics.views}</p>
+            <p>Id : {id}</p>
+            <p>Subject : {subject}</p>
+            <p>
+              Body : <span dangerouslySetInnerHTML={{ __html: body }}></span>
+            </p>
+            <p>Views : {metrics.views}</p>
           </li>
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className='DialogOverlay' />
           <Dialog.Content className='DialogContent'>
-            <Dialog.Title className='DialogTitle'>id : {id}</Dialog.Title>
+            <Dialog.Title className='DialogTitle'>Id : {id}</Dialog.Title>
             <Dialog.Description className='DialogDescription'>
-              subject : {subject}
+              Subject : {subject}
             </Dialog.Description>
-            <Dialog.Description
-              className='DialogDescription'
-              dangerouslySetInnerHTML={{ __html: body }}></Dialog.Description>
             <Dialog.Description className='DialogDescription'>
-              views : {metrics.views}
+              Body : <span dangerouslySetInnerHTML={{ __html: body }}></span>
+            </Dialog.Description>
+            <Dialog.Description className='DialogDescription'>
+              Views : {metrics.views}
             </Dialog.Description>
 
             <div
