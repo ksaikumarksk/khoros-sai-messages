@@ -1,32 +1,42 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 import axios from "axios";
 
 import { MessagesDetails } from "./MessagesDetails";
+import { useQuery, gql } from "@apollo/client";
+
+const GET_MESSAGES = gql`
+  query getMessages {
+    messages {
+      type
+      size
+      items {
+        id
+        subject
+        body
+        metrics {
+          views
+        }
+      }
+    }
+  }
+`;
+
 export const Messages = () => {
-  const [messages, setMessages] = useState([]);
-  useEffect(() => {
-    axios
-      .get(
-        "https://khoros-server-vercel-bikhz4mt9-koushil-mankali.vercel.app/api/messages"
-      )
-      .then((res) => {
-        console.log(res.data[0].data.items);
-        setMessages(res.data[0].data.items);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  console.log("messages data:", messages);
+  const { loading, error, data } = useQuery(GET_MESSAGES);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
+  // const [messages, setMessages] = useState([]);
+
   return (
     <div className='containe'>
       <h1>messages</h1>
       <ul className='ul'>
-        {messages &&
-          messages.map((user) => (
-            <MessagesDetails key={user.id} details={user} />
-          ))}
+        {data?.messages?.items?.map((user) => (
+          <MessagesDetails key={user.id} details={user} />
+        ))}
       </ul>
     </div>
   );
