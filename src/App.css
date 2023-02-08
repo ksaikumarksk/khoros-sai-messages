@@ -72,6 +72,7 @@ input {
 }
 
 .DialogContent {
+  overflow: auto;
   background-color: white;
   border-radius: 6px;
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
@@ -123,4 +124,7 @@ input {
 }
 .IconButton:focus {
   box-shadow: 0 0 0 2px var(--violet7);
+}
+.para {
+  overflow: scroll;
 }

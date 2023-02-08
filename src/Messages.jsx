@@ -1,7 +1,3 @@
-// import { useState, useEffect } from "react";
-
-import axios from "axios";
-
 import { MessagesDetails } from "./MessagesDetails";
 import { useQuery, gql } from "@apollo/client";
 
@@ -13,7 +9,7 @@ const GET_MESSAGES = gql`
       items {
         id
         subject
-        body
+
         metrics {
           views
         }
@@ -22,13 +18,11 @@ const GET_MESSAGES = gql`
   }
 `;
 
-export const Messages = () => {
+const Messages = () => {
   const { loading, error, data } = useQuery(GET_MESSAGES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-
-  // const [messages, setMessages] = useState([]);
 
   return (
     <div className='containe'>
@@ -41,3 +35,4 @@ export const Messages = () => {
     </div>
   );
 };
+export default Messages;
