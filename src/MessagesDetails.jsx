@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { useQuery, gql } from "@apollo/client";
@@ -16,64 +16,68 @@ const GET_MESSAGE = gql`
   }
 `;
 
-export const MessagesDetails = (props) => {
-  const { details } = props;
-  const { id, body, subject, metrics } = details;
+export const MessagesDetails = ({ setModel, id }) => {
+  // const { details } = props;
+  // const { id } = details;
+  console.log(id, "model");
 
-  console.log(" id:", { id });
+  // console.log(" id:", { id });
+  // useEffect(() => {
+  //   if (modelOpen) {
+
+  //   }
+  // }, [ modelOpen ] );
+
   const { data } = useQuery(GET_MESSAGE, {
     variables: {
       id: id,
     },
   });
-
   const result = data?.message;
   console.log(" data:", result);
+
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error : {error.message}</p>;
   return (
     <div>
       <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <li className='li'>
-            <p>Id : {id}</p>
-            <p>Subject : {subject}</p>
-
-            <p>Views : {metrics.views}</p>
-          </li>
+        {/* <Dialog.Trigger asChild className='trigger'>
+          <button>View More..</button>
         </Dialog.Trigger>
 
         <Dialog.Portal>
           <Dialog.Overlay className='DialogOverlay' />
-          <Dialog.Content className='DialogContent'>
-            <Dialog.Title className='DialogTitle'>
-              Id : {result?.id}
-            </Dialog.Title>
-            <Dialog.Description>Subject : {result?.subject}</Dialog.Description>
-            <Dialog.Description className='Description'>
-              Body :{result?.body}
-            </Dialog.Description>
-            <Dialog.Description>
-              Views : {result?.metrics.views}
-            </Dialog.Description>
+          <Dialog.Content className='DialogContent'> */}
+        <div className='content'>
+          <Dialog.Title className='DialogTitle'>
+            Id : {result?.id}
+            {console.log("result.id:", result?.id)}
+          </Dialog.Title>
+          <Dialog.Description>Subject : {result?.subject}</Dialog.Description>
+          <Dialog.Description className='Description'>
+            Body :{result?.body}
+          </Dialog.Description>
+          <Dialog.Description>
+            Views : {result?.metrics.views}
+          </Dialog.Description>
 
-            <div
-              style={{
-                display: "flex",
-                marginTop: 25,
-                justifyContent: "flex-end",
-              }}>
-              <Dialog.Close asChild>
-                <button className='Button green'>Close</button>
-              </Dialog.Close>
-            </div>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 25,
+              justifyContent: "flex-end",
+            }}>
             <Dialog.Close asChild>
-              <button className='IconButton' aria-label='Close'>
-                <Cross2Icon />
+              <button
+                className='button'
+                onClick={() => setModel({ open: false })}>
+                Close
               </button>
             </Dialog.Close>
-          </Dialog.Content>
-        </Dialog.Portal>
+          </div>
+        </div>
+        {/* </Dialog.Content>
+        </Dialog.Portal> */}
       </Dialog.Root>
     </div>
   );

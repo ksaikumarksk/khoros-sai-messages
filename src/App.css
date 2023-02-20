@@ -42,7 +42,7 @@
 
 .App {
   padding: 20px;
-  background-color: lightgrey;
+  background-color: gray;
 }
 .ul {
   margin: 20px;
@@ -51,6 +51,7 @@
 }
 .li {
   background-color: white;
+  color: black;
   padding: 20px;
   padding-left: 30px;
   margin: 10px;
@@ -63,6 +64,9 @@ fieldset,
 input {
   all: unset;
 }
+.button {
+  background-color: #fff;
+}
 
 .DialogOverlay {
   background-color: var(--blackA9);
@@ -71,9 +75,10 @@ input {
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.DialogContent {
+.content {
   overflow: auto;
   background-color: white;
+  color: black;
   border-radius: 6px;
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
     hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
@@ -84,7 +89,7 @@ input {
   width: 90vw;
   min-width: 500;
   max-width: 600px;
-
+  text-align: left;
   max-height: 85vh;
   padding: 25px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -118,6 +123,7 @@ input {
   position: absolute;
   top: 10px;
   right: 10px;
+  color: white;
 }
 .IconButton:hover {
   background-color: var(--violet4);
@@ -127,4 +133,7 @@ input {
 }
 .para {
   overflow: scroll;
+}
+.trigger {
+  color: black;
 }
