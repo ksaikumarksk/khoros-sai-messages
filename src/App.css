@@ -137,3 +137,11 @@ input {
 .trigger {
   color: black;
 }
+.label {
+  padding-bottom: 20px;
+}
+.Input {
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}

@@ -49,17 +49,41 @@ export const MessagesDetails = ({ setModel, id }) => {
           <Dialog.Overlay className='DialogOverlay' />
           <Dialog.Content className='DialogContent'> */}
         <div className='content'>
-          <Dialog.Title className='DialogTitle'>
-            Id : {result?.id}
-            {console.log("result.id:", result?.id)}
-          </Dialog.Title>
-          <Dialog.Description>Subject : {result?.subject}</Dialog.Description>
-          <Dialog.Description className='Description'>
-            Body :{result?.body}
-          </Dialog.Description>
-          <Dialog.Description>
-            Views : {result?.metrics.views}
-          </Dialog.Description>
+          <fieldset className='Fieldset'>
+            <label className='label' htmlFor='Id'>
+              Id :
+            </label>
+            <input className='Input' id='Id' defaultValue={result?.id} />
+          </fieldset>
+          <br />
+          <fieldset className='Fieldset'>
+            <label className='label' htmlFor='subject'>
+              Subjest :
+            </label>
+            <input
+              className='Input'
+              id='subject'
+              defaultValue={result?.subject}
+            />
+          </fieldset>
+          <br />
+          <fieldset className='Fieldset'>
+            <label className='label' htmlFor='body'>
+              Body :
+            </label>
+            <input className='Input' id='Id' defaultValue={result?.body} />
+          </fieldset>
+          <br />
+          <fieldset className='Fieldset'>
+            <label className='label' htmlFor='views'>
+              Views :
+            </label>
+            <input
+              className='Input'
+              id='views'
+              defaultValue={result?.metrics.views}
+            />
+          </fieldset>
 
           <div
             style={{
